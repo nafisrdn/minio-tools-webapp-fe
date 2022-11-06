@@ -1,4 +1,6 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
+import BucketsPage from './pages/buckets';
 import { ColorModeContext, useMode } from './theme';
 
 function App() {
@@ -9,7 +11,11 @@ function App() {
         <CssBaseline />
 
         <div className="app">
-          <h1>Hello World!</h1>
+          <Routes>
+            <Route path="/" element={<h1>home</h1>} />
+
+            <Route path="buckets" element={<BucketsPage />} />
+          </Routes>
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
