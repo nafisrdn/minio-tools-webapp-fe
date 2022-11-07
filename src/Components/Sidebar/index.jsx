@@ -9,14 +9,15 @@ function Sidebar() {
 
   return (
     <Box
-      display="flex"
-      justifyContent="stretch"
-      flexDirection="column"
       width={248}
+      height="100%"
       bgcolor={colors.primary[400]}
       borderRight={1}
       borderColor={colors.grey[900]}
-      boxShadow={1}>
+      boxShadow={1}
+      display="flex"
+      justifyContent="stretch"
+      flexDirection="column">
       <SidebarLogo />
 
       <SidebarLinks />
