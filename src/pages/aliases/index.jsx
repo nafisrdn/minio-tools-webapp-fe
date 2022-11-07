@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   ButtonGroup,
+  Chip,
   Fab,
   Table,
   TableBody,
@@ -85,30 +86,32 @@ function AliasesPage() {
                 <TableCell>{alias.accessKey}</TableCell>
                 <TableCell>{alias.url}</TableCell>
                 <TableCell align="right">
-                  <ButtonGroup variant="contained">
-                    {!alias.selected && (
+                  {alias.selected ? (
+                    <Chip
+                      label="Selected"
+                      sx={{
+                        color: theme.palette.common.white
+                      }}
+                    />
+                  ) : (
+                    <ButtonGroup variant="contained">
                       <Button color="secondary" variant="outlined">
                         Select
                       </Button>
-                    )}
 
-                    <Button
-                      color={alias.selected ? 'primary' : 'secondary'}
-                      variant="outlined"
-                      sx={{
-                        color: alias.selected ? theme.palette.common.white : null
-                      }}>
-                      Edit
-                    </Button>
-                    <Button
-                      color="error"
-                      variant="contained"
-                      onClick={() => {
-                        handleAliasDeleteClick(alias);
-                      }}>
-                      Delete
-                    </Button>
-                  </ButtonGroup>
+                      <Button color="secondary" variant="outlined">
+                        Edit
+                      </Button>
+                      <Button
+                        color="error"
+                        variant="contained"
+                        onClick={() => {
+                          handleAliasDeleteClick(alias);
+                        }}>
+                        Delete
+                      </Button>
+                    </ButtonGroup>
+                  )}
                 </TableCell>
               </TableRow>
             ))}
