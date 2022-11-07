@@ -54,7 +54,7 @@ function AliasesPage() {
           <Add />
         </Fab>
       </Box>
-      
+
       <TableContainer>
         <Table>
           <TableHead>
