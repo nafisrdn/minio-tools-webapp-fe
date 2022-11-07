@@ -12,18 +12,25 @@ import {
   TableRow,
   useTheme
 } from '@mui/material';
+import { useState } from 'react';
+import NewAliasForm from '../../Components/NewAliasForm';
 import dummyAliases from '../../data/dummy-aliases';
 
 function AliasesPage() {
   const theme = useTheme();
-
-  console.log(theme);
+  const [newAliasFormVisible, setNewAliasFormVisible] = useState(false);
 
   return (
     <>
+      <NewAliasForm
+        visible={newAliasFormVisible}
+        onClose={() => {
+          setNewAliasFormVisible(false);
+        }}
+      />
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <h1>Aliases</h1>
-        <Fab color="secondary" aria-label="add">
+        <Fab color="secondary" aria-label="add" onClick={() => setNewAliasFormVisible(true)}>
           <Add />
         </Fab>
       </Box>
