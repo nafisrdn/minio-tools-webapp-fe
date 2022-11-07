@@ -13,12 +13,21 @@ import {
   useTheme
 } from '@mui/material';
 import { useState } from 'react';
+import AliasDeleteConfirmation from '../../Components/AliasDeleteConfirmation';
 import NewAliasForm from '../../Components/NewAliasForm';
 import dummyAliases from '../../data/dummy-aliases';
 
 function AliasesPage() {
   const theme = useTheme();
+
   const [newAliasFormVisible, setNewAliasFormVisible] = useState(false);
+  const [deleteConfirmationDialogOpen, setDeleteConfirmationDialogOpen] = useState(false);
+  const [selectedAliasToDelete, setSelectedAliasToDelete] = useState(null);
+
+  const handleAliasDeleteClick = (alias) => {
+    setSelectedAliasToDelete(alias);
+    setDeleteConfirmationDialogOpen(true);
+  };
 
   return (
     <>
@@ -28,12 +37,24 @@ function AliasesPage() {
           setNewAliasFormVisible(false);
         }}
       />
+
+      {selectedAliasToDelete && (
+        <AliasDeleteConfirmation
+          open={deleteConfirmationDialogOpen}
+          alias={selectedAliasToDelete}
+          onClose={() => {
+            setDeleteConfirmationDialogOpen(false);
+          }}
+        />
+      )}
+
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <h1>Aliases</h1>
         <Fab color="secondary" aria-label="add" onClick={() => setNewAliasFormVisible(true)}>
           <Add />
         </Fab>
       </Box>
+      
       <TableContainer>
         <Table>
           <TableHead>
@@ -79,7 +100,12 @@ function AliasesPage() {
                       }}>
                       Edit
                     </Button>
-                    <Button color="error" variant="contained">
+                    <Button
+                      color="error"
+                      variant="contained"
+                      onClick={() => {
+                        handleAliasDeleteClick(alias);
+                      }}>
                       Delete
                     </Button>
                   </ButtonGroup>
