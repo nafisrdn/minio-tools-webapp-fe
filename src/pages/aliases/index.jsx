@@ -59,7 +59,7 @@ function AliasesPage() {
                     color: 'inherit'
                   }
                 }}>
-                <TableCell>{index}</TableCell>
+                <TableCell>{index + 1}</TableCell>
                 <TableCell>{alias.name}</TableCell>
                 <TableCell>{alias.accessKey}</TableCell>
                 <TableCell>{alias.url}</TableCell>
