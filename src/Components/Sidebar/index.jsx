@@ -1,4 +1,4 @@
-import { Box, useTheme } from '@mui/system';
+import { Box, useTheme } from '@mui/material';
 import SidebarLinks from './SidebarLinks';
 import SidebarLogo from './SidebarLogo';
 import { tokens } from '../../theme';

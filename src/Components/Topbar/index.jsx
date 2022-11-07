@@ -1,6 +1,5 @@
 import { DarkMode, LightMode } from '@mui/icons-material';
-import { IconButton, useTheme } from '@mui/material';
-import { Box } from '@mui/system';
+import { IconButton, useTheme, Box } from '@mui/material';
 import { useContext } from 'react';
 import { ColorModeContext } from '../../theme';
 
