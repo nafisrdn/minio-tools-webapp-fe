@@ -13,7 +13,7 @@ function Sidebar() {
       height="100%"
       bgcolor={colors.primary[400]}
       borderRight={1}
-      borderColor={colors.grey[900]}
+      borderColor={theme.palette.divider}
       boxShadow={1}
       display="flex"
       justifyContent="stretch"
