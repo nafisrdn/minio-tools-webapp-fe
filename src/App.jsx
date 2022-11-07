@@ -10,13 +10,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <div className="app">
-          <Routes>
-            <Route path="/" element={<h1>home</h1>} />
+        <Routes>
+          <Route path="/" element={<h1>home</h1>} />
 
-            <Route path="buckets" element={<BucketsPage />} />
-          </Routes>
-        </div>
+          <Route path="buckets" element={<BucketsPage />} />
+        </Routes>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
