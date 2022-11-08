@@ -99,9 +99,6 @@ function AliasesPage() {
                         Select
                       </Button>
 
-                      <Button color="secondary" variant="outlined">
-                        Edit
-                      </Button>
                       <Button
                         color="error"
                         variant="contained"
