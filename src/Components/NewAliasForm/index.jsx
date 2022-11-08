@@ -1,6 +1,16 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { Formik } from 'formik';
+import * as yup from 'yup';
 import AliasFields from '../AliasForm/AliasFields';
+
+const validationSchema = yup.object().shape({
+  name: yup.string().required('required'),
+  url: yup.string().required('required'),
+  accessKey: yup.string().required('required'),
+  secretKey: yup.string().required('required')
+});
+
+const initialFormValue = { name: '', url: '', accessKey: '', secretKey: '' };
 
 function NewAliasForm(props) {
   const { visible, onClose, onSubmit } = props;
@@ -19,12 +29,19 @@ function NewAliasForm(props) {
       <DialogTitle>New Alias</DialogTitle>
 
       <Formik
-        initialValues={{ name: '', url: '', accessKey: '', secretKey: '' }}
+        initialValues={initialFormValue}
+        validationSchema={validationSchema}
         onSubmit={handleFormSubmit}>
-        {({ handleSubmit, values, handleChange, handleBlur }) => (
+        {({ values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
           <form onSubmit={handleSubmit}>
             <DialogContent>
-              <AliasFields values={values} onChange={handleChange} onBlur={handleBlur} />
+              <AliasFields
+                values={values}
+                errors={errors}
+                touched={touched}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
             </DialogContent>
 
             <DialogActions>

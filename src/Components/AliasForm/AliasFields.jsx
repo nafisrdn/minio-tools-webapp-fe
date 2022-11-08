@@ -1,42 +1,39 @@
-import PropTypes from 'prop-types';
 import AliasField from './AliasField';
 
-const fieldsData = (values) => [
+const fieldsData = [
   {
     name: 'name',
     label: 'Name',
-    value: values.name,
     type: 'text'
   },
   {
     name: 'url',
     label: 'URL',
-    value: values.url,
     type: 'text'
   },
   {
     name: 'accessKey',
     label: 'Access Key',
-    value: values.accessKey,
     type: 'text'
   },
   {
     name: 'secretKey',
     label: 'Secret Key',
-    value: values.secretKey,
     type: 'password'
   }
 ];
 
 function AliasFields(props) {
-  const { values, onChange, onBlur } = props;
+  const { values, errors, touched, onChange, onBlur } = props;
 
-  return fieldsData(values).map((data) => (
+  return fieldsData.map((data) => (
     <AliasField
       key={data.name}
       name={data.name}
       label={data.label}
-      value={data.value}
+      value={values[data.name]}
+      error={!!touched[data.name] && !!errors[data.name]}
+      helperText={touched[data.name] && errors[data.name]}
       type={data.type}
       onChange={onChange}
       onBlur={onBlur}

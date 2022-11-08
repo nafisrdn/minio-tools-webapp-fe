@@ -7,7 +7,7 @@ const textFieldProps = {
 };
 
 function AliasField(props) {
-  const { name, label, value, onChange, onBlur } = props;
+  const { name, error, helperText, label, value, onChange, onBlur } = props;
 
   return (
     <TextField
@@ -19,6 +19,8 @@ function AliasField(props) {
       value={value}
       onChange={onChange}
       onBlur={onBlur}
+      error={error}
+      helperText={helperText}
     />
   );
 }
