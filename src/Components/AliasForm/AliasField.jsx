@@ -1,5 +1,4 @@
 import { TextField } from '@mui/material';
-import PropTypes from 'prop-types';
 
 const textFieldProps = {
   fullWidth: true,
@@ -25,16 +24,8 @@ function AliasField(props) {
 }
 
 AliasField.defaultProps = {
-  onChange: () => {},
-  onBlur: () => {}
-};
-
-AliasField.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func
+  onChange: null,
+  onBlur: null
 };
 
 export default AliasField;

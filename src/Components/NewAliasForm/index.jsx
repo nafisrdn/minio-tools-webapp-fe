@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { Formik } from 'formik';
 import AliasFields from '../AliasForm/AliasFields';
@@ -46,12 +45,6 @@ function NewAliasForm(props) {
 NewAliasForm.defaultProps = {
   onSubmit: null,
   visible: false
-};
-
-NewAliasForm.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func,
-  visible: PropTypes.bool
 };
 
 export default NewAliasForm;

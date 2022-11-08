@@ -49,15 +49,4 @@ AliasFields.defaultProps = {
   onBlur: () => {}
 };
 
-AliasFields.propTypes = {
-  values: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    accessKey: PropTypes.string.isRequired,
-    secretKey: PropTypes.string.isRequired
-  }),
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func
-};
-
 export default AliasFields;
