@@ -165,7 +165,8 @@ export const themeSettings = (mode) => {
     typography: {
       fontSize: 12,
       h1: {
-        fontSize: 40
+        fontSize: 36,
+        textTransform: 'uppercase'
       },
       h2: {
         fontSize: 32

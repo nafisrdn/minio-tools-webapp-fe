@@ -1,6 +1,5 @@
 import { Add } from '@mui/icons-material';
 import {
-  Box,
   Button,
   ButtonGroup,
   Chip,
@@ -15,6 +14,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import AliasDeleteConfirmation from '../../Components/AliasDeleteConfirmation';
+import Header from '../../Components/Header';
 import NewAliasForm from '../../Components/NewAliasForm';
 import dummyAliases from '../../data/dummy-aliases';
 
@@ -49,12 +49,14 @@ function AliasesPage() {
         />
       )}
 
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <h1>Aliases</h1>
-        <Fab color="secondary" aria-label="add" onClick={() => setNewAliasFormVisible(true)}>
-          <Add />
-        </Fab>
-      </Box>
+      <Header
+        title="Aliases"
+        action={
+          <Fab color="secondary" aria-label="add" onClick={() => setNewAliasFormVisible(true)}>
+            <Add />
+          </Fab>
+        }
+      />
 
       <TableContainer>
         <Table>
