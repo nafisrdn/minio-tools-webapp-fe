@@ -9,7 +9,8 @@ function Sidebar() {
 
   return (
     <Box
-      width={248}
+      width="40%"
+      maxWidth={248}
       height="100%"
       bgcolor={colors.primary[400]}
       borderRight={1}
@@ -17,7 +18,9 @@ function Sidebar() {
       boxShadow={1}
       display="flex"
       justifyContent="stretch"
-      flexDirection="column">
+      flexDirection="column"
+      overflow="auto"
+      position="relative">
       <SidebarLogo />
 
       <SidebarLinks />
