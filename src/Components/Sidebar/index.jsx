@@ -9,7 +9,7 @@ function Sidebar() {
 
   return (
     <Box
-      width="40%"
+      width="30%"
       maxWidth={248}
       height="100%"
       bgcolor={colors.primary[400]}
