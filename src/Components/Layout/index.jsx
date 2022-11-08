@@ -12,7 +12,9 @@ function Layout(props) {
       <Box flex={1} overflow="auto">
         <Container>
           <Topbar />
-          <Box component="main">{children}</Box>
+          <Box component="main" marginBottom={5}>
+            {children}
+          </Box>
         </Container>
       </Box>
     </Box>
