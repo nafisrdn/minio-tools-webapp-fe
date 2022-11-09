@@ -1,0 +1,33 @@
+import { AccessTime } from '@mui/icons-material';
+import { Box, Typography, useTheme } from '@mui/material';
+import { tokens } from '../../theme';
+
+function BucketName(props) {
+  const { bucket } = props;
+
+  const theme = useTheme();
+  const color = tokens(theme.palette.mode);
+
+  return (
+    <Box display="inline-block">
+      <Box paddingX={3} paddingTop={3} marginBottom={1.5}>
+        <Typography variant="h3" marginBottom={0.5}>
+          {bucket.name}
+        </Typography>
+        <Box display="flex" gap={1}>
+          <AccessTime />
+          <Typography>{bucket.lastModified}</Typography>
+        </Box>
+      </Box>
+
+      <Box
+        width="90%"
+        height={10}
+        bgcolor={color.greenAccent[400]}
+        sx={{ borderBottomRightRadius: 100 }}
+      />
+    </Box>
+  );
+}
+
+export default BucketName;
