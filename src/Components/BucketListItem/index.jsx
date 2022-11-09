@@ -1,5 +1,5 @@
 import { People, Security } from '@mui/icons-material';
-import { Box, Grid, useTheme } from '@mui/material';
+import { Box, Grid, SpeedDial, SpeedDialAction, SpeedDialIcon, useTheme } from '@mui/material';
 import { useEffect, useState } from 'react';
 import generateUsers from '../../data/dummy-bucket-users';
 import { tokens } from '../../theme';
@@ -24,17 +24,22 @@ function BucketListItem(props) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [userItems, setUsersItems] = useState();
+  const [userItems, setUsersItems] = useState(null);
 
   useEffect(() => {
-    const generatedUsers = generateUsers().map((user) => ({ id: user.id, text: user.accessKey }));
+    const generatedUsers = generateUsers();
 
-    setUsersItems(generatedUsers);
+    const generatedUserItems = generatedUsers.map((user) => ({
+      id: user.id,
+      text: user.accessKey
+    }));
+
+    setUsersItems(generatedUserItems);
   }, []);
 
   return (
     <Grid item xs={12} md={6}>
-      <Box bgcolor={colors.primary[400]} borderRadius={4}>
+      <Box bgcolor={colors.primary[400]} borderRadius={4} position="relative">
         <BucketHeader bucket={bucket} />
 
         {userItems && (
@@ -50,6 +55,22 @@ function BucketListItem(props) {
             </Grid>
           </Grid>
         )}
+
+        <SpeedDial
+          ariaLabel="test"
+          sx={{ position: 'absolute', bottom: 16, right: 16 }}
+          icon={<SpeedDialIcon />}
+          FabProps={{
+            sx: {
+              bgcolor: 'secondary.main',
+              '&:hover': {
+                bgcolor: 'secondary.main'
+              }
+            }
+          }}>
+          <SpeedDialAction icon={<People />} tooltipTitle="Test" />
+          <SpeedDialAction icon={<Security />} tooltipTitle="Test" />
+        </SpeedDial>
       </Box>
     </Grid>
   );

@@ -1,5 +1,7 @@
 class User {
   constructor({ id, accessKey, secretKey, policies, status, generateId = false }) {
+    this.generateId = () => Math.floor(Math.random() * 999999).toString();
+
     this.id = generateId ? this.generateId() : id;
     this.accessKey = accessKey;
     this.secretKey = secretKey;
@@ -16,10 +18,6 @@ class User {
   getPolicies = () => this.policies;
 
   getStatus = () => this.status;
-
-  generateId = () => {
-    this.id = Math.floor(Math.random() * 999999).toString();
-  };
 }
 
 export default User;
