@@ -14,7 +14,7 @@ function BucketName(props) {
         <Typography variant="h3" marginBottom={0.5}>
           {bucket.name}
         </Typography>
-        <Box display="flex" gap={1}>
+        <Box display="flex" gap={1} sx={{ color: color.greenAccent[100] }}>
           <AccessTime />
           <Typography>{bucket.lastModified}</Typography>
         </Box>
