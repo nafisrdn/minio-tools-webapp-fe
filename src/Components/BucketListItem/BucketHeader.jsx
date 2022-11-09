@@ -2,15 +2,10 @@ import { AccessTime } from '@mui/icons-material';
 import { Box, Typography, useTheme } from '@mui/material';
 import { tokens } from '../../theme';
 
-function HeaderDivider() {
-  return (
-    <Box
-      width="90%"
-      height={10}
-      bgcolor={color.greenAccent[400]}
-      sx={{ borderBottomRightRadius: 100 }}
-    />
-  );
+function HeaderDivider(props) {
+  const { color } = props;
+
+  return <Box width="90%" height={10} bgcolor={color} sx={{ borderBottomRightRadius: 100 }} />;
 }
 
 function BucketName(props) {
@@ -32,7 +27,7 @@ function BucketName(props) {
         </Box>
       </Box>
 
-      <HeaderDivider />
+      <HeaderDivider color={color.greenAccent[400]} />
     </Box>
   );
 }
