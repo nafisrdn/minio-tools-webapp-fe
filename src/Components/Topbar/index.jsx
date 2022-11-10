@@ -1,12 +1,12 @@
 import { DarkMode, LightMode, Menu } from '@mui/icons-material';
-import { IconButton, useTheme, Box } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { IconButton, Box } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import { themeActions } from '../../store/theme';
 
 function Topbar(props) {
   const { onMenuClick } = props;
 
-  const theme = useTheme();
+  const { mode } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const handleModeClick = () => {
@@ -20,7 +20,7 @@ function Topbar(props) {
       </IconButton>
 
       <IconButton onClick={handleModeClick}>
-        {theme.palette.mode === 'dark' ? <LightMode /> : <DarkMode />}
+        {mode === 'dark' ? <LightMode /> : <DarkMode />}
       </IconButton>
     </Box>
   );
