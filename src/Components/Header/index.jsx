@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box, Typography, useTheme } from '@mui/material';
 import { tokens } from '../../theme';
 
@@ -17,5 +18,14 @@ function Header(props) {
     </Box>
   );
 }
+
+Header.defaultProps = {
+  action: null
+};
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  action: PropTypes.element
+};
 
 export default Header;

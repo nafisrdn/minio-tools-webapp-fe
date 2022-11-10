@@ -1,4 +1,4 @@
-import { Folder, People, RemoveRedEye, Security } from '@mui/icons-material';
+import { Folder, Inventory, People, RemoveRedEye, Security } from '@mui/icons-material';
 import { List, Typography } from '@mui/material';
 import SidebarLinkItem from './SidebarLinkItem';
 
@@ -22,6 +22,11 @@ const linksData = [
     text: 'Policies',
     to: '/policies',
     icon: <Security />
+  },
+  {
+    text: 'Create Bundle',
+    to: '/bundle/create',
+    icon: <Inventory />
   }
 ];
 

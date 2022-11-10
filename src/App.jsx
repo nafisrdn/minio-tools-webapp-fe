@@ -8,6 +8,7 @@ import BucketsPage from './pages/buckets';
 import Layout from './Components/Layout';
 import UsersPage from './pages/users';
 import PoliciesPage from './pages/policies';
+import CreateBundlePage from './pages/bundle/create';
 
 function App() {
   const { mode } = useSelector((state) => state.theme);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/buckets" element={<BucketsPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/bundle/create" element={<CreateBundlePage />} />
         </Routes>
       </Layout>
     </ThemeProvider>
